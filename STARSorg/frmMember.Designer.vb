@@ -76,12 +76,12 @@ Partial Class frmMember
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.lblPID = New System.Windows.Forms.Label()
+        Me.lblFName = New System.Windows.Forms.Label()
+        Me.lblLName = New System.Windows.Forms.Label()
+        Me.lblMi = New System.Windows.Forms.Label()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.lblPhone = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
         Me.grpMemberInfo.SuspendLayout()
@@ -302,12 +302,12 @@ Partial Class frmMember
         '
         'grpMemberInfo
         '
-        Me.grpMemberInfo.Controls.Add(Me.Label20)
-        Me.grpMemberInfo.Controls.Add(Me.Label19)
-        Me.grpMemberInfo.Controls.Add(Me.Label18)
-        Me.grpMemberInfo.Controls.Add(Me.Label17)
-        Me.grpMemberInfo.Controls.Add(Me.Label16)
-        Me.grpMemberInfo.Controls.Add(Me.Label15)
+        Me.grpMemberInfo.Controls.Add(Me.lblPhone)
+        Me.grpMemberInfo.Controls.Add(Me.lblEmail)
+        Me.grpMemberInfo.Controls.Add(Me.lblMi)
+        Me.grpMemberInfo.Controls.Add(Me.lblLName)
+        Me.grpMemberInfo.Controls.Add(Me.lblFName)
+        Me.grpMemberInfo.Controls.Add(Me.lblPID)
         Me.grpMemberInfo.Controls.Add(Me.Label9)
         Me.grpMemberInfo.Controls.Add(Me.Label10)
         Me.grpMemberInfo.Controls.Add(Me.Label11)
@@ -586,59 +586,59 @@ Partial Class frmMember
         Me.Label14.TabIndex = 19
         Me.Label14.Text = "First Name:"
         '
-        'Label15
+        'lblPID
         '
-        Me.Label15.BackColor = System.Drawing.Color.White
-        Me.Label15.Location = New System.Drawing.Point(81, 142)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(106, 17)
-        Me.Label15.TabIndex = 30
-        Me.Label15.Text = "Label15"
+        Me.lblPID.BackColor = System.Drawing.Color.White
+        Me.lblPID.Location = New System.Drawing.Point(81, 142)
+        Me.lblPID.Name = "lblPID"
+        Me.lblPID.Size = New System.Drawing.Size(106, 17)
+        Me.lblPID.TabIndex = 30
+        Me.lblPID.Text = "Label15"
         '
-        'Label16
+        'lblFName
         '
-        Me.Label16.BackColor = System.Drawing.Color.White
-        Me.Label16.Location = New System.Drawing.Point(81, 168)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(106, 17)
-        Me.Label16.TabIndex = 31
-        Me.Label16.Text = "Label16"
+        Me.lblFName.BackColor = System.Drawing.Color.White
+        Me.lblFName.Location = New System.Drawing.Point(81, 168)
+        Me.lblFName.Name = "lblFName"
+        Me.lblFName.Size = New System.Drawing.Size(106, 17)
+        Me.lblFName.TabIndex = 31
+        Me.lblFName.Text = "Label16"
         '
-        'Label17
+        'lblLName
         '
-        Me.Label17.BackColor = System.Drawing.Color.White
-        Me.Label17.Location = New System.Drawing.Point(81, 196)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(106, 17)
-        Me.Label17.TabIndex = 32
-        Me.Label17.Text = "Label17"
+        Me.lblLName.BackColor = System.Drawing.Color.White
+        Me.lblLName.Location = New System.Drawing.Point(81, 196)
+        Me.lblLName.Name = "lblLName"
+        Me.lblLName.Size = New System.Drawing.Size(106, 17)
+        Me.lblLName.TabIndex = 32
+        Me.lblLName.Text = "Label17"
         '
-        'Label18
+        'lblMi
         '
-        Me.Label18.BackColor = System.Drawing.Color.White
-        Me.Label18.Location = New System.Drawing.Point(81, 224)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(106, 17)
-        Me.Label18.TabIndex = 33
-        Me.Label18.Text = "Label18"
+        Me.lblMi.BackColor = System.Drawing.Color.White
+        Me.lblMi.Location = New System.Drawing.Point(81, 224)
+        Me.lblMi.Name = "lblMi"
+        Me.lblMi.Size = New System.Drawing.Size(106, 17)
+        Me.lblMi.TabIndex = 33
+        Me.lblMi.Text = "Label18"
         '
-        'Label19
+        'lblEmail
         '
-        Me.Label19.BackColor = System.Drawing.Color.White
-        Me.Label19.Location = New System.Drawing.Point(81, 249)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(106, 17)
-        Me.Label19.TabIndex = 34
-        Me.Label19.Text = "Label19"
+        Me.lblEmail.BackColor = System.Drawing.Color.White
+        Me.lblEmail.Location = New System.Drawing.Point(81, 249)
+        Me.lblEmail.Name = "lblEmail"
+        Me.lblEmail.Size = New System.Drawing.Size(106, 17)
+        Me.lblEmail.TabIndex = 34
+        Me.lblEmail.Text = "Label19"
         '
-        'Label20
+        'lblPhone
         '
-        Me.Label20.BackColor = System.Drawing.Color.White
-        Me.Label20.Location = New System.Drawing.Point(81, 280)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(106, 17)
-        Me.Label20.TabIndex = 35
-        Me.Label20.Text = "Label20"
+        Me.lblPhone.BackColor = System.Drawing.Color.White
+        Me.lblPhone.Location = New System.Drawing.Point(81, 280)
+        Me.lblPhone.Name = "lblPhone"
+        Me.lblPhone.Size = New System.Drawing.Size(106, 17)
+        Me.lblPhone.TabIndex = 35
+        Me.lblPhone.Text = "Label20"
         '
         'Label21
         '
@@ -724,12 +724,12 @@ Partial Class frmMember
     Friend WithEvents picMemberAdd As PictureBox
     Friend WithEvents grpSearch As GroupBox
     Friend WithEvents Search As Button
-    Friend WithEvents Label20 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label15 As Label
+    Friend WithEvents lblPhone As Label
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents lblMi As Label
+    Friend WithEvents lblLName As Label
+    Friend WithEvents lblFName As Label
+    Friend WithEvents lblPID As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
