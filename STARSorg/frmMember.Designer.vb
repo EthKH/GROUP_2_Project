@@ -45,7 +45,51 @@ Partial Class frmMember
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbHelp = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator12 = New System.Windows.Forms.ToolStripSeparator()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.grpMemberInfo = New System.Windows.Forms.GroupBox()
+        Me.grpMemberList = New System.Windows.Forms.GroupBox()
+        Me.lstMembers = New System.Windows.Forms.ListBox()
+        Me.grpMemberSearch = New System.Windows.Forms.GroupBox()
+        Me.txtPhone = New System.Windows.Forms.TextBox()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.txtMiddle = New System.Windows.Forms.TextBox()
+        Me.txtLastName = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtFirstName = New System.Windows.Forms.TextBox()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPID = New System.Windows.Forms.TextBox()
+        Me.grpSearch = New System.Windows.Forms.GroupBox()
+        Me.picMemberAdd = New System.Windows.Forms.PictureBox()
+        Me.Search = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.picMemberSelect = New System.Windows.Forms.PictureBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.ToolStrip1.SuspendLayout()
+        Me.grpMemberInfo.SuspendLayout()
+        Me.grpMemberList.SuspendLayout()
+        Me.grpMemberSearch.SuspendLayout()
+        Me.grpSearch.SuspendLayout()
+        CType(Me.picMemberAdd, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMemberSelect, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -245,16 +289,391 @@ Partial Class frmMember
         Me.ToolStripSeparator12.Name = "ToolStripSeparator12"
         Me.ToolStripSeparator12.Size = New System.Drawing.Size(10, 50)
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.White
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 73)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(776, 37)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Members"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'grpMemberInfo
+        '
+        Me.grpMemberInfo.Controls.Add(Me.Label20)
+        Me.grpMemberInfo.Controls.Add(Me.Label19)
+        Me.grpMemberInfo.Controls.Add(Me.Label18)
+        Me.grpMemberInfo.Controls.Add(Me.Label17)
+        Me.grpMemberInfo.Controls.Add(Me.Label16)
+        Me.grpMemberInfo.Controls.Add(Me.Label15)
+        Me.grpMemberInfo.Controls.Add(Me.Label9)
+        Me.grpMemberInfo.Controls.Add(Me.Label10)
+        Me.grpMemberInfo.Controls.Add(Me.Label11)
+        Me.grpMemberInfo.Controls.Add(Me.Label12)
+        Me.grpMemberInfo.Controls.Add(Me.Label13)
+        Me.grpMemberInfo.Controls.Add(Me.Label14)
+        Me.grpMemberInfo.Controls.Add(Me.picMemberSelect)
+        Me.grpMemberInfo.Location = New System.Drawing.Point(580, 129)
+        Me.grpMemberInfo.Name = "grpMemberInfo"
+        Me.grpMemberInfo.Size = New System.Drawing.Size(207, 308)
+        Me.grpMemberInfo.TabIndex = 3
+        Me.grpMemberInfo.TabStop = False
+        Me.grpMemberInfo.Text = "Member Info"
+        '
+        'grpMemberList
+        '
+        Me.grpMemberList.Controls.Add(Me.lstMembers)
+        Me.grpMemberList.Location = New System.Drawing.Point(383, 129)
+        Me.grpMemberList.Name = "grpMemberList"
+        Me.grpMemberList.Size = New System.Drawing.Size(177, 309)
+        Me.grpMemberList.TabIndex = 4
+        Me.grpMemberList.TabStop = False
+        Me.grpMemberList.Text = "Member List"
+        '
+        'lstMembers
+        '
+        Me.lstMembers.FormattingEnabled = True
+        Me.lstMembers.Location = New System.Drawing.Point(6, 19)
+        Me.lstMembers.Name = "lstMembers"
+        Me.lstMembers.Size = New System.Drawing.Size(163, 277)
+        Me.lstMembers.TabIndex = 0
+        '
+        'grpMemberSearch
+        '
+        Me.grpMemberSearch.Controls.Add(Me.TextBox1)
+        Me.grpMemberSearch.Controls.Add(Me.picMemberAdd)
+        Me.grpMemberSearch.Controls.Add(Me.Label8)
+        Me.grpMemberSearch.Controls.Add(Me.txtPID)
+        Me.grpMemberSearch.Controls.Add(Me.txtPhone)
+        Me.grpMemberSearch.Controls.Add(Me.txtEmail)
+        Me.grpMemberSearch.Controls.Add(Me.txtMiddle)
+        Me.grpMemberSearch.Controls.Add(Me.txtLastName)
+        Me.grpMemberSearch.Controls.Add(Me.Label7)
+        Me.grpMemberSearch.Controls.Add(Me.Label6)
+        Me.grpMemberSearch.Controls.Add(Me.Label5)
+        Me.grpMemberSearch.Controls.Add(Me.Label4)
+        Me.grpMemberSearch.Controls.Add(Me.Label3)
+        Me.grpMemberSearch.Controls.Add(Me.Label2)
+        Me.grpMemberSearch.Controls.Add(Me.txtFirstName)
+        Me.grpMemberSearch.Controls.Add(Me.btnAdd)
+        Me.grpMemberSearch.Location = New System.Drawing.Point(19, 129)
+        Me.grpMemberSearch.Name = "grpMemberSearch"
+        Me.grpMemberSearch.Size = New System.Drawing.Size(176, 307)
+        Me.grpMemberSearch.TabIndex = 5
+        Me.grpMemberSearch.TabStop = False
+        Me.grpMemberSearch.Text = "Member Add"
+        '
+        'txtPhone
+        '
+        Me.txtPhone.Location = New System.Drawing.Point(72, 154)
+        Me.txtPhone.Name = "txtPhone"
+        Me.txtPhone.Size = New System.Drawing.Size(76, 20)
+        Me.txtPhone.TabIndex = 13
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Location = New System.Drawing.Point(72, 126)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(76, 20)
+        Me.txtEmail.TabIndex = 12
+        '
+        'txtMiddle
+        '
+        Me.txtMiddle.Location = New System.Drawing.Point(72, 98)
+        Me.txtMiddle.Name = "txtMiddle"
+        Me.txtMiddle.Size = New System.Drawing.Size(76, 20)
+        Me.txtMiddle.TabIndex = 11
+        '
+        'txtLastName
+        '
+        Me.txtLastName.Location = New System.Drawing.Point(72, 70)
+        Me.txtLastName.Name = "txtLastName"
+        Me.txtLastName.Size = New System.Drawing.Size(76, 20)
+        Me.txtLastName.TabIndex = 10
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(8, 185)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(38, 13)
+        Me.Label7.TabIndex = 9
+        Me.Label7.Text = "Photo:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(8, 157)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(41, 13)
+        Me.Label6.TabIndex = 7
+        Me.Label6.Text = "Phone:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(8, 129)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(35, 13)
+        Me.Label5.TabIndex = 6
+        Me.Label5.Text = "Email:"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(8, 101)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.TabIndex = 5
+        Me.Label4.Text = "Middle:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(8, 73)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(61, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Last Name:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(8, 45)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(60, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "First Name:"
+        '
+        'txtFirstName
+        '
+        Me.txtFirstName.Location = New System.Drawing.Point(72, 42)
+        Me.txtFirstName.Name = "txtFirstName"
+        Me.txtFirstName.Size = New System.Drawing.Size(76, 20)
+        Me.txtFirstName.TabIndex = 2
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Location = New System.Drawing.Point(11, 241)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(78, 24)
+        Me.btnAdd.TabIndex = 0
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(8, 19)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(28, 13)
+        Me.Label8.TabIndex = 15
+        Me.Label8.Text = "PID:"
+        '
+        'txtPID
+        '
+        Me.txtPID.Location = New System.Drawing.Point(72, 16)
+        Me.txtPID.Name = "txtPID"
+        Me.txtPID.Size = New System.Drawing.Size(76, 20)
+        Me.txtPID.TabIndex = 14
+        '
+        'grpSearch
+        '
+        Me.grpSearch.Controls.Add(Me.Label21)
+        Me.grpSearch.Controls.Add(Me.TextBox2)
+        Me.grpSearch.Controls.Add(Me.Search)
+        Me.grpSearch.Location = New System.Drawing.Point(221, 199)
+        Me.grpSearch.Name = "grpSearch"
+        Me.grpSearch.Size = New System.Drawing.Size(131, 158)
+        Me.grpSearch.TabIndex = 6
+        Me.grpSearch.TabStop = False
+        Me.grpSearch.Text = "Member Search"
+        '
+        'picMemberAdd
+        '
+        Me.picMemberAdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picMemberAdd.Location = New System.Drawing.Point(98, 208)
+        Me.picMemberAdd.Name = "picMemberAdd"
+        Me.picMemberAdd.Size = New System.Drawing.Size(72, 88)
+        Me.picMemberAdd.TabIndex = 16
+        Me.picMemberAdd.TabStop = False
+        '
+        'Search
+        '
+        Me.Search.Location = New System.Drawing.Point(27, 104)
+        Me.Search.Name = "Search"
+        Me.Search.Size = New System.Drawing.Size(78, 24)
+        Me.Search.TabIndex = 2
+        Me.Search.Text = "Search"
+        Me.Search.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(72, 182)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(76, 20)
+        Me.TextBox1.TabIndex = 17
+        '
+        'picMemberSelect
+        '
+        Me.picMemberSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picMemberSelect.Location = New System.Drawing.Point(67, 16)
+        Me.picMemberSelect.Name = "picMemberSelect"
+        Me.picMemberSelect.Size = New System.Drawing.Size(85, 115)
+        Me.picMemberSelect.TabIndex = 17
+        Me.picMemberSelect.TabStop = False
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(6, 56)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(119, 20)
+        Me.TextBox2.TabIndex = 18
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(14, 142)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(28, 13)
+        Me.Label9.TabIndex = 29
+        Me.Label9.Text = "PID:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(14, 280)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(41, 13)
+        Me.Label10.TabIndex = 23
+        Me.Label10.Text = "Phone:"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(14, 252)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(35, 13)
+        Me.Label11.TabIndex = 22
+        Me.Label11.Text = "Email:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(14, 224)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(41, 13)
+        Me.Label12.TabIndex = 21
+        Me.Label12.Text = "Middle:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(14, 196)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(61, 13)
+        Me.Label13.TabIndex = 20
+        Me.Label13.Text = "Last Name:"
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(14, 168)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(60, 13)
+        Me.Label14.TabIndex = 19
+        Me.Label14.Text = "First Name:"
+        '
+        'Label15
+        '
+        Me.Label15.BackColor = System.Drawing.Color.White
+        Me.Label15.Location = New System.Drawing.Point(81, 142)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(106, 17)
+        Me.Label15.TabIndex = 30
+        Me.Label15.Text = "Label15"
+        '
+        'Label16
+        '
+        Me.Label16.BackColor = System.Drawing.Color.White
+        Me.Label16.Location = New System.Drawing.Point(81, 168)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(106, 17)
+        Me.Label16.TabIndex = 31
+        Me.Label16.Text = "Label16"
+        '
+        'Label17
+        '
+        Me.Label17.BackColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(81, 196)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(106, 17)
+        Me.Label17.TabIndex = 32
+        Me.Label17.Text = "Label17"
+        '
+        'Label18
+        '
+        Me.Label18.BackColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(81, 224)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(106, 17)
+        Me.Label18.TabIndex = 33
+        Me.Label18.Text = "Label18"
+        '
+        'Label19
+        '
+        Me.Label19.BackColor = System.Drawing.Color.White
+        Me.Label19.Location = New System.Drawing.Point(81, 249)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(106, 17)
+        Me.Label19.TabIndex = 34
+        Me.Label19.Text = "Label19"
+        '
+        'Label20
+        '
+        Me.Label20.BackColor = System.Drawing.Color.White
+        Me.Label20.Location = New System.Drawing.Point(81, 280)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(106, 17)
+        Me.Label20.TabIndex = 35
+        Me.Label20.Text = "Label20"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.Location = New System.Drawing.Point(15, 35)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(99, 13)
+        Me.Label21.TabIndex = 19
+        Me.Label21.Text = "Member Last Name"
+        '
         'frmMember
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.grpSearch)
+        Me.Controls.Add(Me.grpMemberSearch)
+        Me.Controls.Add(Me.grpMemberList)
+        Me.Controls.Add(Me.grpMemberInfo)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "frmMember"
         Me.Text = "frmMember"
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        Me.grpMemberInfo.ResumeLayout(False)
+        Me.grpMemberInfo.PerformLayout()
+        Me.grpMemberList.ResumeLayout(False)
+        Me.grpMemberSearch.ResumeLayout(False)
+        Me.grpMemberSearch.PerformLayout()
+        Me.grpSearch.ResumeLayout(False)
+        Me.grpSearch.PerformLayout()
+        CType(Me.picMemberAdd, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMemberSelect, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -282,4 +701,42 @@ Partial Class frmMember
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents tsbHelp As ToolStripButton
     Friend WithEvents ToolStripSeparator12 As ToolStripSeparator
+    Friend WithEvents Label1 As Label
+    Friend WithEvents grpMemberInfo As GroupBox
+    Friend WithEvents grpMemberList As GroupBox
+    Friend WithEvents lstMembers As ListBox
+    Friend WithEvents grpMemberSearch As GroupBox
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents txtPhone As TextBox
+    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents txtMiddle As TextBox
+    Friend WithEvents txtLastName As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtFirstName As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents txtPID As TextBox
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents picMemberAdd As PictureBox
+    Friend WithEvents grpSearch As GroupBox
+    Friend WithEvents Search As Button
+    Friend WithEvents Label20 As Label
+    Friend WithEvents Label19 As Label
+    Friend WithEvents Label18 As Label
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents picMemberSelect As PictureBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label21 As Label
 End Class
