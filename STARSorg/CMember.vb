@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Public Class CMember
+
     Private _mstrPID As Integer
     Private _mstrFName As String
     Private _mstrLName As String
@@ -10,16 +11,16 @@ Public Class CMember
     Private _isNewMember As Boolean
 
     Public Sub New()
-        _mstrPID = ""
+        _mstrPID = 0
         _mstrFName = ""
         _mstrLName = ""
         _mstrMI = ""
         _mstrEmail = ""
-        _mstrPhone = ""
+        _mstrPhone = 0
         _mstrPhotoPath = ""
-        _isNewMember = ""
+
     End Sub
-#Region
+#Region "exposed params"
     Public Property PID As Integer
         Get
             Return _mstrPID
@@ -81,7 +82,7 @@ Public Class CMember
             Return _isNewMember
         End Get
         Set(INMvalue As Boolean)
-            _mstrFName = INMvalue
+            _isNewMember = INMvalue
         End Set
     End Property
 
