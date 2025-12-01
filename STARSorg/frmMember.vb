@@ -3,7 +3,9 @@ Imports System.IO
 
 Public Class frmMember
     Private myDB As CDB
-    Private objMember As New CMember
+    Private objMembers As New CMembers
+    Private blnClearing As Boolean
+    Private blnReloading As Boolean
 
 #Region "Toolbars"
     Private Sub tsbCourse_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbLogout.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
@@ -23,31 +25,30 @@ Public Class frmMember
 #End Region
     Private Sub LoadMembers()
         Dim objDR As SqlDataReader
-        'Dim n As Integer
-        'n = 0
         lstMembers.Items.Clear()
-
         Try
-            objDR = objMember.GetAllMembers()
+            objDR = objMembers.GetAllMembers()
             Do While objDR.Read
                 lstMembers.Items.Add(objDR.Item("PID"))
-                'lstMembers.Items.Insert(n, objDR.Item("FName"))
-                'n += 1
             Loop
             objDR.Close()
         Catch ex As Exception
 
         End Try
-        'If objMember.CurrentObject.
+        If objMembers.CurrentObject.PID <> "" Then
+            lstMembers.SelectedIndex = lstMembers.FindStringExact(objMembers.CurrentObject.PID)
+        End If
+        blnReloading = False
     End Sub
 
     Private Sub frmMember_Load(sender As Object, e As EventArgs) Handles Me.Load
-        objMember = New CMember
+        objMembers = New CMembers
     End Sub
 
     Private Sub frmMember_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         ClearScreenControls(Me)
         LoadMembers()
+        grpMemberAddUpdate.Enabled = False
     End Sub
 
     Private Sub txtPhoto_Click(sender As Object, e As EventArgs) Handles txtPhoto.Click
@@ -63,5 +64,30 @@ Public Class frmMember
                 Exit Sub
             End Try
         End If
+    End Sub
+
+    Private Sub lstMembers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstMembers.SelectedIndexChanged
+        If blnClearing Then
+            Exit Sub
+        End If
+        If blnReloading Then
+            Exit Sub
+        End If
+        If lstMembers.SelectedIndex = -1 Then
+            Exit Sub
+        End If
+        chkAdd.Checked = False
+        LoadSelectedRecord()
+        grpMemberAddUpdate.Enabled = True
+    End Sub
+    Private Sub LoadSelectedRecord()
+        Try
+            objMembers.GetMemberByPID(lstMembers.SelectedItem.ToString)
+            With objMembers.CurrentObject
+                txtPID.Text = .PID
+            End With
+        Catch ex As Exception
+            MessageBox.Show("Error Loading Member Value: " & ex.ToString, "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

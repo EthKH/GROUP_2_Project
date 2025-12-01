@@ -19,6 +19,7 @@ Public Class CMember
         _mstrPhone = 0
         _mstrPhotoPath = ""
 
+
     End Sub
 #Region "exposed params"
     Public Property PID As Integer
@@ -110,10 +111,5 @@ Public Class CMember
             End If
         End If
         Return myDB.ExecSP("sp_SaveNewMember", GetSaveParams)
-    End Function
-    Public Function GetAllMembers() As SqlDataReader
-        Dim objDR As SqlDataReader
-        objDR = myDB.GetDataReaderBySP("sp_GetAllMembers", Nothing)
-        Return objDR
     End Function
 End Class
