@@ -71,5 +71,6 @@ Public Class frmMain
             MessageBox.Show("unable to open database. Connection string=" & gstrConn, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             EndProgram()
         End Try
+        frmMember.Hide()
     End Sub
 End Class

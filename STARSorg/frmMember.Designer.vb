@@ -22,6 +22,7 @@ Partial Class frmMember
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbHome = New System.Windows.Forms.ToolStripButton()
@@ -49,7 +50,7 @@ Partial Class frmMember
         Me.grpMemberList = New System.Windows.Forms.GroupBox()
         Me.lstMembers = New System.Windows.Forms.ListBox()
         Me.grpMemberAddUpdate = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtPhoto = New System.Windows.Forms.TextBox()
         Me.picMemberAdd = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtPID = New System.Windows.Forms.TextBox()
@@ -72,12 +73,15 @@ Partial Class frmMember
         Me.grpMode = New System.Windows.Forms.GroupBox()
         Me.chkUpdate = New System.Windows.Forms.CheckBox()
         Me.chkAdd = New System.Windows.Forms.CheckBox()
+        Me.ofdPhoto = New System.Windows.Forms.OpenFileDialog()
+        Me.errP = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolStrip1.SuspendLayout()
         Me.grpMemberList.SuspendLayout()
         Me.grpMemberAddUpdate.SuspendLayout()
         CType(Me.picMemberAdd, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpSearch.SuspendLayout()
         Me.grpMode.SuspendLayout()
+        CType(Me.errP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolStrip1
@@ -297,7 +301,7 @@ Partial Class frmMember
         Me.grpMemberList.Margin = New System.Windows.Forms.Padding(4)
         Me.grpMemberList.Name = "grpMemberList"
         Me.grpMemberList.Padding = New System.Windows.Forms.Padding(4)
-        Me.grpMemberList.Size = New System.Drawing.Size(323, 301)
+        Me.grpMemberList.Size = New System.Drawing.Size(323, 302)
         Me.grpMemberList.TabIndex = 4
         Me.grpMemberList.TabStop = False
         Me.grpMemberList.Text = "Member List"
@@ -310,11 +314,11 @@ Partial Class frmMember
         Me.lstMembers.Margin = New System.Windows.Forms.Padding(4)
         Me.lstMembers.Name = "lstMembers"
         Me.lstMembers.Size = New System.Drawing.Size(307, 260)
-        Me.lstMembers.TabIndex = 0
+        Me.lstMembers.TabIndex = 1
         '
         'grpMemberAddUpdate
         '
-        Me.grpMemberAddUpdate.Controls.Add(Me.TextBox1)
+        Me.grpMemberAddUpdate.Controls.Add(Me.txtPhoto)
         Me.grpMemberAddUpdate.Controls.Add(Me.picMemberAdd)
         Me.grpMemberAddUpdate.Controls.Add(Me.Label8)
         Me.grpMemberAddUpdate.Controls.Add(Me.txtPID)
@@ -330,7 +334,7 @@ Partial Class frmMember
         Me.grpMemberAddUpdate.Controls.Add(Me.Label2)
         Me.grpMemberAddUpdate.Controls.Add(Me.txtFirstName)
         Me.grpMemberAddUpdate.Controls.Add(Me.btnSave)
-        Me.grpMemberAddUpdate.Location = New System.Drawing.Point(479, 216)
+        Me.grpMemberAddUpdate.Location = New System.Drawing.Point(479, 217)
         Me.grpMemberAddUpdate.Margin = New System.Windows.Forms.Padding(4)
         Me.grpMemberAddUpdate.Name = "grpMemberAddUpdate"
         Me.grpMemberAddUpdate.Padding = New System.Windows.Forms.Padding(4)
@@ -339,14 +343,14 @@ Partial Class frmMember
         Me.grpMemberAddUpdate.TabStop = False
         Me.grpMemberAddUpdate.Text = "Member Add or Update"
         '
-        'TextBox1
+        'txtPhoto
         '
-        Me.TextBox1.Location = New System.Drawing.Point(96, 226)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.MaxLength = 300
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(129, 22)
-        Me.TextBox1.TabIndex = 17
+        Me.txtPhoto.Location = New System.Drawing.Point(96, 226)
+        Me.txtPhoto.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtPhoto.MaxLength = 300
+        Me.txtPhoto.Name = "txtPhoto"
+        Me.txtPhoto.Size = New System.Drawing.Size(129, 22)
+        Me.txtPhoto.TabIndex = 10
         '
         'picMemberAdd
         '
@@ -355,6 +359,7 @@ Partial Class frmMember
         Me.picMemberAdd.Margin = New System.Windows.Forms.Padding(4)
         Me.picMemberAdd.Name = "picMemberAdd"
         Me.picMemberAdd.Size = New System.Drawing.Size(121, 156)
+        Me.picMemberAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picMemberAdd.TabIndex = 16
         Me.picMemberAdd.TabStop = False
         '
@@ -375,7 +380,7 @@ Partial Class frmMember
         Me.txtPID.MaxLength = 7
         Me.txtPID.Name = "txtPID"
         Me.txtPID.Size = New System.Drawing.Size(129, 22)
-        Me.txtPID.TabIndex = 14
+        Me.txtPID.TabIndex = 4
         '
         'txtPhone
         '
@@ -384,16 +389,16 @@ Partial Class frmMember
         Me.txtPhone.MaxLength = 13
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(129, 22)
-        Me.txtPhone.TabIndex = 13
+        Me.txtPhone.TabIndex = 9
         '
         'txtEmail
         '
-        Me.txtEmail.Location = New System.Drawing.Point(96, 157)
+        Me.txtEmail.Location = New System.Drawing.Point(96, 158)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEmail.MaxLength = 50
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(129, 22)
-        Me.txtEmail.TabIndex = 12
+        Me.txtEmail.TabIndex = 8
         '
         'txtMiddle
         '
@@ -402,16 +407,16 @@ Partial Class frmMember
         Me.txtMiddle.MaxLength = 1
         Me.txtMiddle.Name = "txtMiddle"
         Me.txtMiddle.Size = New System.Drawing.Size(129, 22)
-        Me.txtMiddle.TabIndex = 11
+        Me.txtMiddle.TabIndex = 7
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(96, 88)
+        Me.txtLastName.Location = New System.Drawing.Point(96, 89)
         Me.txtLastName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLastName.MaxLength = 75
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.Size = New System.Drawing.Size(129, 22)
-        Me.txtLastName.TabIndex = 10
+        Me.txtLastName.TabIndex = 6
         '
         'Label7
         '
@@ -426,7 +431,7 @@ Partial Class frmMember
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(11, 195)
+        Me.Label6.Location = New System.Drawing.Point(11, 194)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(49, 16)
@@ -480,15 +485,15 @@ Partial Class frmMember
         Me.txtFirstName.MaxLength = 50
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.Size = New System.Drawing.Size(129, 22)
-        Me.txtFirstName.TabIndex = 2
+        Me.txtFirstName.TabIndex = 5
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(14, 264)
+        Me.btnSave.Location = New System.Drawing.Point(13, 263)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(135, 50)
-        Me.btnSave.TabIndex = 0
+        Me.btnSave.TabIndex = 11
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
@@ -510,7 +515,7 @@ Partial Class frmMember
         '
         Me.Label21.AutoSize = True
         Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label21.Location = New System.Drawing.Point(10, 23)
+        Me.Label21.Location = New System.Drawing.Point(11, 23)
         Me.Label21.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(131, 17)
@@ -524,7 +529,7 @@ Partial Class frmMember
         Me.TextBox2.MaxLength = 75
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(181, 22)
-        Me.TextBox2.TabIndex = 18
+        Me.TextBox2.TabIndex = 1
         '
         'Search
         '
@@ -541,8 +546,10 @@ Partial Class frmMember
         Me.grpMode.Controls.Add(Me.chkUpdate)
         Me.grpMode.Controls.Add(Me.chkAdd)
         Me.grpMode.Location = New System.Drawing.Point(479, 140)
+        Me.grpMode.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.grpMode.Name = "grpMode"
-        Me.grpMode.Size = New System.Drawing.Size(382, 71)
+        Me.grpMode.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.grpMode.Size = New System.Drawing.Size(381, 71)
         Me.grpMode.TabIndex = 7
         Me.grpMode.TabStop = False
         Me.grpMode.Text = "Mode Select"
@@ -551,21 +558,31 @@ Partial Class frmMember
         '
         Me.chkUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.chkUpdate.Location = New System.Drawing.Point(215, 21)
+        Me.chkUpdate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkUpdate.Name = "chkUpdate"
-        Me.chkUpdate.Size = New System.Drawing.Size(154, 42)
-        Me.chkUpdate.TabIndex = 1
+        Me.chkUpdate.Size = New System.Drawing.Size(155, 42)
+        Me.chkUpdate.TabIndex = 3
         Me.chkUpdate.Text = "Update"
         Me.chkUpdate.UseVisualStyleBackColor = True
         '
         'chkAdd
         '
         Me.chkAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkAdd.Location = New System.Drawing.Point(14, 21)
+        Me.chkAdd.Location = New System.Drawing.Point(13, 21)
+        Me.chkAdd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkAdd.Name = "chkAdd"
-        Me.chkAdd.Size = New System.Drawing.Size(154, 42)
-        Me.chkAdd.TabIndex = 0
+        Me.chkAdd.Size = New System.Drawing.Size(155, 42)
+        Me.chkAdd.TabIndex = 2
         Me.chkAdd.Text = "Add"
         Me.chkAdd.UseVisualStyleBackColor = True
+        '
+        'ofdPhoto
+        '
+        Me.ofdPhoto.FileName = "OpenFileDialog1"
+        '
+        'errP
+        '
+        Me.errP.ContainerControl = Me
         '
         'frmMember
         '
@@ -590,6 +607,7 @@ Partial Class frmMember
         Me.grpSearch.ResumeLayout(False)
         Me.grpSearch.PerformLayout()
         Me.grpMode.ResumeLayout(False)
+        CType(Me.errP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -635,7 +653,7 @@ Partial Class frmMember
     Friend WithEvents txtFirstName As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents txtPID As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtPhoto As TextBox
     Friend WithEvents picMemberAdd As PictureBox
     Friend WithEvents grpSearch As GroupBox
     Friend WithEvents Search As Button
@@ -644,4 +662,6 @@ Partial Class frmMember
     Friend WithEvents grpMode As GroupBox
     Friend WithEvents chkUpdate As CheckBox
     Friend WithEvents chkAdd As CheckBox
+    Friend WithEvents ofdPhoto As OpenFileDialog
+    Friend WithEvents errP As ErrorProvider
 End Class

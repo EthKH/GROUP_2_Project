@@ -93,6 +93,7 @@
   <ItemGroup>
     <Compile Include="CDB.vb" />
     <Compile Include="CMember.vb" />
+    <Compile Include="CMembers.vb" />
     <Compile Include="frmMain.vb">
       <SubType>Form</SubType>
     </Compile>
