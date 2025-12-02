@@ -35,7 +35,7 @@ Public Class frmMember
         Catch ex As Exception
 
         End Try
-        If objMembers.CurrentObject.PID <> "" Then
+        If objMembers.CurrentObject.PID <> 0 Then
             lstMembers.SelectedIndex = lstMembers.FindStringExact(objMembers.CurrentObject.PID)
         End If
         blnReloading = False
@@ -52,7 +52,7 @@ Public Class frmMember
     End Sub
 
     Private Sub txtPhoto_Click(sender As Object, e As EventArgs) Handles txtPhoto.Click
-        Dim PhotoFile As StreamReader
+        'Dim PhotoFile As StreamReader
         Dim photo As String
         ofdPhoto.ShowDialog()
         If ofdPhoto.ShowDialog() = DialogResult.OK Then
@@ -85,9 +85,21 @@ Public Class frmMember
             objMembers.GetMemberByPID(lstMembers.SelectedItem.ToString)
             With objMembers.CurrentObject
                 txtPID.Text = .PID
+                txtFirstName.Text = .FName
+                txtLastName.Text = .LName
+                txtMiddle.Text = .MI
+                txtEmail.Text = .Email
+                txtPhone.Text = .Phone
+                txtPhoto.Text = .PhotoPath
             End With
         Catch ex As Exception
             MessageBox.Show("Error Loading Member Value: " & ex.ToString, "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+
+    End Sub
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
     End Sub
 End Class

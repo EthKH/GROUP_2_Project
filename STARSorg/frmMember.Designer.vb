@@ -69,7 +69,7 @@ Partial Class frmMember
         Me.grpSearch = New System.Windows.Forms.GroupBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Search = New System.Windows.Forms.Button()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.grpMode = New System.Windows.Forms.GroupBox()
         Me.chkUpdate = New System.Windows.Forms.CheckBox()
         Me.chkAdd = New System.Windows.Forms.CheckBox()
@@ -501,7 +501,7 @@ Partial Class frmMember
         '
         Me.grpSearch.Controls.Add(Me.Label21)
         Me.grpSearch.Controls.Add(Me.TextBox2)
-        Me.grpSearch.Controls.Add(Me.Search)
+        Me.grpSearch.Controls.Add(Me.btnSearch)
         Me.grpSearch.Location = New System.Drawing.Point(137, 140)
         Me.grpSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.grpSearch.Name = "grpSearch"
@@ -531,15 +531,15 @@ Partial Class frmMember
         Me.TextBox2.Size = New System.Drawing.Size(181, 22)
         Me.TextBox2.TabIndex = 1
         '
-        'Search
+        'btnSearch
         '
-        Me.Search.Location = New System.Drawing.Point(203, 48)
-        Me.Search.Margin = New System.Windows.Forms.Padding(4)
-        Me.Search.Name = "Search"
-        Me.Search.Size = New System.Drawing.Size(104, 30)
-        Me.Search.TabIndex = 2
-        Me.Search.Text = "Search"
-        Me.Search.UseVisualStyleBackColor = True
+        Me.btnSearch.Location = New System.Drawing.Point(203, 48)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(104, 30)
+        Me.btnSearch.TabIndex = 2
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
         '
         'grpMode
         '
@@ -656,7 +656,7 @@ Partial Class frmMember
     Friend WithEvents txtPhoto As TextBox
     Friend WithEvents picMemberAdd As PictureBox
     Friend WithEvents grpSearch As GroupBox
-    Friend WithEvents Search As Button
+    Friend WithEvents btnSearch As Button
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents grpMode As GroupBox

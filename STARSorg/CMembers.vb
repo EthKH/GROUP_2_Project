@@ -35,10 +35,23 @@ Public Class CMembers
         FillObject(myDB.GetDataReaderBySP("sp_GetMemberByPID", params))
         Return _Member
     End Function
+    Public Function GetMemberPartialSearch(strLName As String) As SqlDataReader
+        Dim params As New ArrayList
+        Dim objDR As SqlDataReader
+        params.Add(New SqlParameter("LName", strLName))
+        objDR = myDB.GetDataReaderBySP("sp_PartialSearch", params)
+        Return objDR
+    End Function
     Private Function FillObject(objDR As SqlDataReader) As CMember
         If objDR.Read Then
             With _Member
                 .PID = objDR.Item("PID")
+                .FName = objDR.Item("FName")
+                .LName = objDR.Item("LName")
+                .MI = objDR.Item("MI")
+                .Email = objDR.Item("Email")
+                .Phone = objDR.Item("Phone")
+                .PhotoPath = objDR.Item("PhotoPath")
             End With
         Else
 
