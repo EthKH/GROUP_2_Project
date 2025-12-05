@@ -2,7 +2,6 @@
 
 Public Class CMembers
     Private _Member As CMember
-
     Public Sub New()
         _Member = New CMember
     End Sub
@@ -38,8 +37,12 @@ Public Class CMembers
         Dim objDR As SqlDataReader
         params.Add(New SqlParameter("LName", strLName))
         objDR = myDB.GetDataReaderBySP("sp_PartialSearch", params)
-        objDR.Close()
         Return objDR
+
+    End Function
+    Public Function UpdateMmeber(params As ArrayList) As CMember
+        FillObject(myDB.GetDataReaderBySP("sp_UpdateMember", params))
+        Return _Member
     End Function
     Private Function FillObject(objDR As SqlDataReader) As CMember
         If objDR.Read Then
@@ -57,8 +60,5 @@ Public Class CMembers
         End If
         objDR.Close()
         Return _Member
-    End Function
-    Private Function UpdateMember(params As ArrayList)
-
     End Function
 End Class

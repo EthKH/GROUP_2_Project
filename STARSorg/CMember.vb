@@ -18,8 +18,6 @@ Public Class CMember
         _mstrEmail = ""
         _mstrPhone = 0
         _mstrPhotoPath = ""
-
-
     End Sub
 #Region "exposed params"
     Public Property PID As Integer

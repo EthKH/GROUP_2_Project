@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Reflection
 Public Class frmMain
 #Region "Toolbars"
     Private Sub tsbCourse_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbLogout.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
@@ -14,6 +15,41 @@ Public Class frmMain
     End Sub
     Private Sub tsbLogout_Click(sender As Object, e As EventArgs) Handles tsbLogout.Click
         EndProgram()
+    End Sub
+    Private Sub tsbCourse_Click(sender As Object, e As EventArgs) Handles tsbCourse.Click
+        intNextAction = ACTION_COURSE
+        Me.Hide()
+    End Sub
+    Private Sub tsbEvent_Click(sender As Object, e As EventArgs) Handles tsbEvent.Click
+        intNextAction = ACTION_EVENT
+        Me.Hide()
+    End Sub
+    Private Sub tsbHome_Click(sender As Object, e As EventArgs) Handles tsbHome.Click
+        'Already Here
+    End Sub
+    Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
+        intNextAction = ACTION_ROLE
+        Me.Hide()
+    End Sub
+    Private Sub tsbRSVP_Click(sender As Object, e As EventArgs) Handles tsbRSVP.Click
+        intNextAction = ACTION_RSVP
+        Me.Hide()
+    End Sub
+
+    Private Sub tsbSemester_Click(sender As Object, e As EventArgs) Handles tsbSemester.Click
+        intNextAction = ACTION_SEMESTER
+        Me.Hide()
+    End Sub
+
+    Private Sub tsbTutor_Click(sender As Object, e As EventArgs) Handles tsbTutor.Click
+        intNextAction = ACTION_TUTOR
+        Me.Hide()
+    End Sub
+    Private Sub tsbMember_Click(sender As Object, e As EventArgs) Handles tsbMember.Click
+        Me.Hide()
+        frmMember.ShowDialog()
+        Me.Show()
+        PerformNextAction()
     End Sub
 #End Region
     'Private myDB As CDB

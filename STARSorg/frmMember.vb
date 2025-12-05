@@ -1,12 +1,12 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Runtime.Remoting.Metadata.W3cXsd2001
 
 Public Class frmMember
     Private myDB As CDB
     Private objMembers As New CMembers
     Private blnClearing As Boolean
     Private blnReloading As Boolean
-
 #Region "Toolbars"
     Private Sub tsbCourse_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbLogout.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
         'need to be done one due to the img being non-img images and in the bckgrd imgae slot
@@ -19,9 +19,43 @@ Public Class frmMember
         tsbProxy = CType(sender, ToolStripButton)
         tsbProxy.DisplayStyle = ToolStripItemDisplayStyle.Image
     End Sub
-    'Private Sub tsbLogout_Click(sender As Object, e As EventArgs) Handles tsbLogout.Click
-    '    EndProgram()
-    'End Sub
+    Private Sub tsbCourse_Click(sender As Object, e As EventArgs) Handles tsbCourse.Click
+        intNextAction = ACTION_COURSE
+        Me.Hide()
+    End Sub
+    Private Sub tsbEvent_Click(sender As Object, e As EventArgs) Handles tsbEvent.Click
+        intNextAction = ACTION_EVENT
+        Me.Hide()
+    End Sub
+    Private Sub tsbHome_Click(sender As Object, e As EventArgs) Handles tsbHome.Click
+        intNextAction = ACTION_HOME
+        Me.Hide()
+    End Sub
+    Private Sub tsbLogout_Click(sender As Object, e As EventArgs) Handles tsbLogout.Click
+        intNextAction = ACTION_LOGOUT
+        Me.Hide()
+    End Sub
+    Private Sub tsbRole_Click(sender As Object, e As EventArgs) Handles tsbRole.Click
+        intNextAction = ACTION_ROLE
+        Me.Hide()
+    End Sub
+    Private Sub tsbRSVP_Click(sender As Object, e As EventArgs) Handles tsbRSVP.Click
+        intNextAction = ACTION_RSVP
+        Me.Hide()
+    End Sub
+
+    Private Sub tsbSemester_Click(sender As Object, e As EventArgs) Handles tsbSemester.Click
+        intNextAction = ACTION_SEMESTER
+        Me.Hide()
+    End Sub
+
+    Private Sub tsbTutor_Click(sender As Object, e As EventArgs) Handles tsbTutor.Click
+        intNextAction = ACTION_TUTOR
+        Me.Hide()
+    End Sub
+    Private Sub tsbMember_Click(sender As Object, e As EventArgs) Handles tsbMember.Click
+        'Already Here
+    End Sub
 #End Region
     Private Sub LoadMembers()
         Dim objDR As SqlDataReader
@@ -113,16 +147,26 @@ Public Class frmMember
                 txtPhone.Text = .Phone
                 txtPhoto.Text = .PhotoPath
             End With
+            picMemberAdd.ImageLocation = txtPhoto.Text
         Catch ex As Exception
             MessageBox.Show("Error Loading Member Value: " & ex.ToString, "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+        'loadparams()
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         LoadPartialSearch()
     End Sub
+    'Private Sub loadparams()
+    '    AddUpdate.Add(New SqlParameter("PID", .PID))
+    '    AddUpdate.Add(New SqlParameter("FName", txtFirstName.Text))
+    '    AddUpdate.Add(New SqlParameter("LName", txtLastName.Text))
+    '    AddUpdate.Add(New SqlParameter("MI", txtMiddle.Text))
+    '    AddUpdate.Add(New SqlParameter("Email", txtEmail.Text))
+    '    AddUpdate.Add(New SqlParameter("Phone", txtPhone.Text))
+    '    AddUpdate.Add(New SqlParameter("PhotoPath", txtPhoto.Text))
+    'End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim blnErrors As Boolean
-        Dim params As ArrayList
         If Not ValidateTextboxLength(txtPID, errP) Then
             blnErrors = True
         End If
@@ -162,12 +206,13 @@ Public Class frmMember
         ElseIf chkAdd.Checked = True And chkUpdate.Checked = False Then
             Try
                 objMembers.Save()
+
             Catch ex As Exception
                 MessageBox.Show("Member Already Exists.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
         ElseIf chkAdd.Checked = False And chkUpdate.Checked = True Then
-
+            'objMembers.UpdateMmeber(AddUpdate)
         Else
             MessageBox.Show("Unable to determine mode selection.", "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -187,4 +232,5 @@ Public Class frmMember
         End If
         grpMemberAddUpdate.Enabled = True
     End Sub
+
 End Class
