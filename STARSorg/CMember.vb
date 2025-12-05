@@ -78,7 +78,7 @@ Public Class CMember
             _mstrPhotoPath = Photovalue
         End Set
     End Property
-    Public Property isNewMember As Boolean
+    Public Property IsNewMember As Boolean
         Get
             Return _isNewMember
         End Get
@@ -102,7 +102,7 @@ Public Class CMember
     End Property
 #End Region
     Public Function Save() As Integer
-        If isNewMember Then
+        If IsNewMember Then
             Dim params As New ArrayList
             params.Add(New SqlParameter("PID", _mstrPID))
             Dim strResult As String = myDB.GetSingleValueFromSP("sp_GetMemberByPID", params)
@@ -110,6 +110,6 @@ Public Class CMember
                 Return -1
             End If
         End If
-        Return myDB.ExecSP("sp_SaveNewMember", GetSaveParams)
+        Return myDB.ExecSP("sp_SaveNewMember", GetSaveParams())
     End Function
 End Class

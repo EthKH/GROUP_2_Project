@@ -30,8 +30,6 @@ Public Class CMembers
         Dim params As New ArrayList
         'Dim objDR As SqlDataReader
         params.Add(New SqlParameter("PID", strPID))
-        'objDR = myDB.GetDataReaderBySP("sp_GetMemberByPID", params)
-        'Return objDR
         FillObject(myDB.GetDataReaderBySP("sp_GetMemberByPID", params))
         Return _Member
     End Function
@@ -40,6 +38,7 @@ Public Class CMembers
         Dim objDR As SqlDataReader
         params.Add(New SqlParameter("LName", strLName))
         objDR = myDB.GetDataReaderBySP("sp_PartialSearch", params)
+        objDR.Close()
         Return objDR
     End Function
     Private Function FillObject(objDR As SqlDataReader) As CMember
@@ -56,6 +55,10 @@ Public Class CMembers
         Else
 
         End If
+        objDR.Close()
         Return _Member
+    End Function
+    Private Function UpdateMember(params As ArrayList)
+
     End Function
 End Class

@@ -47,16 +47,16 @@
             Return True
         End If
     End Function
-    Public Function ValidateMaskedTextboxLength(ByRef obj As MaskedTextBox, ByRef errP As ErrorProvider) As Boolean
-        If obj.Text.Length = 6 Then
-            errP.SetIconAlignment(obj, ErrorIconAlignment.MiddleLeft)
-            errP.SetError(obj, "You must enter a value here")
-            obj.Focus()
-            Return False
-        Else
-            errP.SetError(obj, "")
-            Return True
-        End If
-    End Function
+    'Public Function ValidateMaskedTextboxLength(ByRef obj As MaskedTextBox, ByRef errP As ErrorProvider) As Boolean
+    '    If obj.Text.Length = 6 Then
+    '        errP.SetIconAlignment(obj, ErrorIconAlignment.MiddleLeft)
+    '        errP.SetError(obj, "You must enter a value here")
+    '        obj.Focus()
+    '        Return False
+    '    Else
+    '        errP.SetError(obj, "")
+    '        Return True
+    '    End If
+    'End Function
 
 End Module

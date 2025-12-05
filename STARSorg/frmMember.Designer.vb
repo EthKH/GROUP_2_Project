@@ -68,7 +68,7 @@ Partial Class frmMember
         Me.btnSave = New System.Windows.Forms.Button()
         Me.grpSearch = New System.Windows.Forms.GroupBox()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.grpMode = New System.Windows.Forms.GroupBox()
         Me.chkUpdate = New System.Windows.Forms.CheckBox()
@@ -500,7 +500,7 @@ Partial Class frmMember
         'grpSearch
         '
         Me.grpSearch.Controls.Add(Me.Label21)
-        Me.grpSearch.Controls.Add(Me.TextBox2)
+        Me.grpSearch.Controls.Add(Me.txtSearch)
         Me.grpSearch.Controls.Add(Me.btnSearch)
         Me.grpSearch.Location = New System.Drawing.Point(137, 140)
         Me.grpSearch.Margin = New System.Windows.Forms.Padding(4)
@@ -522,14 +522,14 @@ Partial Class frmMember
         Me.Label21.TabIndex = 19
         Me.Label21.Text = "Member Last Name"
         '
-        'TextBox2
+        'txtSearch
         '
-        Me.TextBox2.Location = New System.Drawing.Point(13, 52)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox2.MaxLength = 75
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(181, 22)
-        Me.TextBox2.TabIndex = 1
+        Me.txtSearch.Location = New System.Drawing.Point(13, 52)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSearch.MaxLength = 75
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(181, 22)
+        Me.txtSearch.TabIndex = 1
         '
         'btnSearch
         '
@@ -657,7 +657,7 @@ Partial Class frmMember
     Friend WithEvents picMemberAdd As PictureBox
     Friend WithEvents grpSearch As GroupBox
     Friend WithEvents btnSearch As Button
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label21 As Label
     Friend WithEvents grpMode As GroupBox
     Friend WithEvents chkUpdate As CheckBox
