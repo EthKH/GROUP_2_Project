@@ -7,7 +7,7 @@ Public Class frmMember
     Private objMembers As New CMembers
     Private blnClearing As Boolean
     Private blnReloading As Boolean
-    Private gstrLoggedInSecLevelID As String
+    Private gstrLoggedInSecLevelID As String 'TEST gstrLoggedInSecLevelID , COMMENT OUT WHEN INTEGRATING
 #Region "Toolbars"
     Private Sub tsbCourse_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbLogout.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
         'need to be done one due to the img being non-img images and in the bckgrd imgae slot
@@ -58,7 +58,7 @@ Public Class frmMember
         'Already Here
     End Sub
 #End Region
-    Private Sub LoadMembers()
+    Private Sub LoadMembers() 'load members into lstMembers
         Dim objDR As SqlDataReader
         lstMembers.Items.Clear()
         Try
@@ -75,7 +75,7 @@ Public Class frmMember
         End If
         blnReloading = False
     End Sub
-    Private Sub LoadPartialSearch()
+    Private Sub LoadPartialSearch() 'last name partial search function
         Dim objDR As SqlDataReader
         lstMembers.Items.Clear()
         Try
@@ -97,8 +97,8 @@ Public Class frmMember
     End Sub
 
     Private Sub frmMember_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        'gstrLoggedInSecLevelID = "Guest"
-        If gstrLoggedInSecLevelID = "Guest" Then
+        'gstrLoggedInSecLevelID = "Guest"   'test function for security gating
+        If gstrLoggedInSecLevelID = "Guest" Then 'SECURITY LEVEL DETERIMINATION
             intNextAction = ACTION_HOME
             Me.Hide()
         End If
@@ -108,7 +108,7 @@ Public Class frmMember
         txtPhoto.Text = " click to add "
     End Sub
 
-    Private Sub txtPhoto_Click(sender As Object, e As EventArgs) Handles txtPhoto.Click
+    Private Sub txtPhoto_Click(sender As Object, e As EventArgs) Handles txtPhoto.Click 'click to add photo from txtPhoto
         'Dim PhotoFile As StreamReader
         txtPhoto.Clear()
         Dim photo As String
@@ -124,10 +124,7 @@ Public Class frmMember
         End If
     End Sub
 
-    Private Sub lstMembers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstMembers.SelectedIndexChanged
-        'If grpMemberAddUpdate.Enabled = True Then
-        '    grpMemberAddUpdate.Enabled = False
-        'End If
+    Private Sub lstMembers_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstMembers.SelectedIndexChanged 'call load selected Member from lstMembers & enable the Member add/Update grp box
         If blnClearing Then
             Exit Sub
         End If
@@ -141,7 +138,7 @@ Public Class frmMember
         LoadSelectedRecord()
         grpMemberAddUpdate.Enabled = True
     End Sub
-    Private Sub LoadSelectedRecord()
+    Private Sub LoadSelectedRecord() 'load data from DB based on selection from lstMembers and push data to txtboxes
         txtPhoto.Clear()
         Try
             objMembers.GetMemberByPID(lstMembers.SelectedItem.ToString)
@@ -153,21 +150,18 @@ Public Class frmMember
                 txtEmail.Text = .Email
                 txtPhone.Text = .Phone
                 txtPhoto.Text = .PhotoPath
-                'picMemberAdd.ImageLocation = .PhotoPath
             End With
-            'MsgBox(Application.StartupPath)
             picMemberAdd.ImageLocation = txtPhoto.Text
         Catch ex As Exception
             MessageBox.Show("Error Loading Member Value: " & ex.ToString, "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-        'loadparams()
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         LoadPartialSearch()
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim blnErrors As Boolean
-        If Not ValidateTextboxLength(txtPID, errP) Then
+        If Not ValidateTextboxLength(txtPID, errP) Then ' start of txt box Validation
             blnErrors = True
         End If
         If Not ValidateTextboxNumeric(txtPID, errP) Then
@@ -179,7 +173,7 @@ Public Class frmMember
         If Not ValidateTextboxLength(txtLastName, errP) Then
             blnErrors = True
         End If
-        'If Not ValidateTextboxLength(txtMiddle, errP) Then
+        'If Not ValidateTextboxLength(txtMiddle, errP) Then 'I determine the Middle name to be non-critical
         '    blnErrors = True
         'End If
         If Not ValidateTextboxLength(txtEmail, errP) Then
@@ -196,7 +190,7 @@ Public Class frmMember
         End If
         If blnErrors Then
             Exit Sub
-        End If
+        End If ' end of txt box Validation
         If chkAdd.Checked = True And chkUpdate.Checked = True Then
             MessageBox.Show("User selected both modes, this should not be.", "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
@@ -205,7 +199,7 @@ Public Class frmMember
             Exit Sub
         Else
             Try
-                'push scren data into object using currentobject
+                'push screen data into object using currentobject
                 With objMembers.CurrentObject
                     .PID = txtPID.Text
                     .FName = txtFirstName.Text
@@ -223,7 +217,7 @@ Public Class frmMember
         End If
 
     End Sub
-
+    'can't select both only one
     Private Sub chkAdd_CheckStateChanged(sender As Object, e As EventArgs) Handles chkAdd.CheckStateChanged
         If chkAdd.Checked And chkUpdate.Checked Then
             chkUpdate.Checked = False

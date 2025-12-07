@@ -87,7 +87,7 @@ Public Class CMember
         End Set
     End Property
 
-    Public ReadOnly Property GetSaveParams() As ArrayList
+    Public ReadOnly Property GetSaveParams() As ArrayList 'arranging the user values from frmMember into an arraylist to be fed to a DB sp
         Get
             Dim params As New ArrayList
             params.Add(New SqlParameter("PID", _mstrPID))
@@ -101,7 +101,7 @@ Public Class CMember
         End Get
     End Property
 #End Region
-    Public Function Save() As Integer
+    Public Function Save() As Integer 'check for existing members and savin the user input values as a new member.
         If IsNewMember Then
             Dim params1 As New ArrayList
             params1.Add(New SqlParameter("PID", _mstrPID))
@@ -112,7 +112,7 @@ Public Class CMember
         End If
         Return myDB.ExecSP("sp_SaveNewMember", GetSaveParams())
     End Function
-    Public Function GetReportData() As SqlDataAdapter
+    Public Function GetReportData() As SqlDataAdapter 'send data to frmMmeberReport
         Return myDB.GetDataAdapterbySP("dbo.sp_getAllMembers", Nothing)
     End Function
 End Class

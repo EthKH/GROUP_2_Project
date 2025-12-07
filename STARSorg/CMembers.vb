@@ -20,19 +20,19 @@ Public Class CMembers
     Public Function Save() As Integer
         Return _Member.Save()
     End Function
-    Public Function GetAllMembers() As SqlDataReader
+    Public Function GetAllMembers() As SqlDataReader 'Get all Member data from DB
         Dim objDR As SqlDataReader
         objDR = myDB.GetDataReaderBySP("sp_GetAllMembers", Nothing)
         Return objDR
     End Function
-    Public Function GetMemberByPID(strPID As String) As CMember
+    Public Function GetMemberByPID(strPID As String) As CMember 'Made functionaly Redundant
         Dim params As New ArrayList
         'Dim objDR As SqlDataReader
         params.Add(New SqlParameter("PID", strPID))
         FillObject(myDB.GetDataReaderBySP("sp_GetMemberByPID", params))
         Return _Member
     End Function
-    Public Function GetMemberPartialSearch(strLName As String) As SqlDataReader
+    Public Function GetMemberPartialSearch(strLName As String) As SqlDataReader 'THE PARTIAL SEARCH
         Dim params As New ArrayList
         Dim objDR As SqlDataReader
         params.Add(New SqlParameter("LName", strLName))
@@ -40,7 +40,7 @@ Public Class CMembers
         Return objDR
 
     End Function
-    Private Function FillObject(objDR As SqlDataReader) As CMember
+    Private Function FillObject(objDR As SqlDataReader) As CMember 'pushing member data out to be used by frmMember
         If objDR.Read Then
             With _Member
                 .PID = objDR.Item("PID")
