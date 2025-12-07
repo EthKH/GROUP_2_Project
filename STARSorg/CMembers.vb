@@ -25,7 +25,7 @@ Public Class CMembers
         objDR = myDB.GetDataReaderBySP("sp_GetAllMembers", Nothing)
         Return objDR
     End Function
-    Public Function GetMemberByPID(strPID As String) As CMember 'Made functionaly Redundant
+    Public Function GetMemberByPID(strPID As String) As CMember 'used for load seleced record
         Dim params As New ArrayList
         'Dim objDR As SqlDataReader
         params.Add(New SqlParameter("PID", strPID))

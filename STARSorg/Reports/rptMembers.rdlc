@@ -538,18 +538,18 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="STARSDBDataSet1">
+    <DataSource Name="dsMembersSec">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b9ef24be-e5de-4d29-aca7-34d83528b7ac</rd:DataSourceID>
+      <rd:DataSourceID>cfbf22f7-8010-4530-805d-f84cfec39fb5</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="dsMember">
       <Query>
-        <DataSourceName>STARSDBDataSet1</DataSourceName>
+        <DataSourceName>dsMembersSec</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -593,7 +593,7 @@
     </DataSet>
     <DataSet Name="dsSecurity">
       <Query>
-        <DataSourceName>STARSDBDataSet1</DataSourceName>
+        <DataSourceName>dsMembersSec</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>

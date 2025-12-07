@@ -113,6 +113,6 @@ Public Class CMember
         Return myDB.ExecSP("sp_SaveNewMember", GetSaveParams())
     End Function
     Public Function GetReportData() As SqlDataAdapter 'send data to frmMmeberReport
-        Return myDB.GetDataAdapterbySP("dbo.sp_getAllMembers", Nothing)
+        Return myDB.GetDataAdapterbySP("dbo.sp_GetMemberAndSecurityLevel", Nothing)
     End Function
 End Class

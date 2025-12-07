@@ -17,12 +17,8 @@ Public Class frmMemberReport
         da = Member.GetReportData
         da.Fill(ds)
 
-        sd = New DataSet 'SECURITY DATA IN
-        sa = Member.GetReportData 'REPLACE FOR THE EQUIVALENT IN SECURITY
-        da.Fill(sd)
-
         rpvMemberReport.LocalReport.DataSources.Add(New ReportDataSource("dsMember", ds.Tables(0)))
-        rpvMemberReport.LocalReport.DataSources.Add(New ReportDataSource("dsSecurity", sd.Tables(0))) '< this may be wierd due the second table, don't know if it will work. can't test without everything else
+        rpvMemberReport.LocalReport.DataSources.Add(New ReportDataSource("dsSecurity", ds.Tables(0))) '< this may be wierd due the second table, don't know if it will work. can't test without everything else
         rpvMemberReport.SetDisplayMode(DisplayMode.PrintLayout)
         rpvMemberReport.RefreshReport()
         Me.Cursor = Cursors.Default
