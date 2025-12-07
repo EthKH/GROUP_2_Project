@@ -40,10 +40,6 @@ Public Class CMembers
         Return objDR
 
     End Function
-    Public Function UpdateMmeber(params As ArrayList) As CMember
-        FillObject(myDB.GetDataReaderBySP("sp_UpdateMember", params))
-        Return _Member
-    End Function
     Private Function FillObject(objDR As SqlDataReader) As CMember
         If objDR.Read Then
             With _Member

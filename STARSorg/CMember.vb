@@ -1,30 +1,32 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
+Imports Microsoft.ReportingServices.ReportProcessing.OnDemandReportObjectModel
 Public Class CMember
 
-    Private _mstrPID As Integer
+    Private _mstrPID As String
     Private _mstrFName As String
     Private _mstrLName As String
     Private _mstrMI As String
     Private _mstrEmail As String
-    Private _mstrPhone As Integer
+    Private _mstrPhone As String
     Private _mstrPhotoPath As String
     Private _isNewMember As Boolean
 
     Public Sub New()
-        _mstrPID = 0
+        _mstrPID = ""
         _mstrFName = ""
         _mstrLName = ""
         _mstrMI = ""
         _mstrEmail = ""
-        _mstrPhone = 0
+        _mstrPhone = ""
         _mstrPhotoPath = ""
     End Sub
 #Region "exposed params"
-    Public Property PID As Integer
+    Public Property PID As String
         Get
             Return _mstrPID
         End Get
-        Set(pidvalue As Integer)
+        Set(pidvalue As String)
             _mstrPID = pidvalue
         End Set
     End Property
@@ -60,12 +62,12 @@ Public Class CMember
             _mstrEmail = Emailvalue
         End Set
     End Property
-    Public Property Phone As Integer
+    Public Property Phone As String
         Get
             Return _mstrPhone
         End Get
-        Set(Phonevalue As Integer)
-            _mstrFName = Phonevalue
+        Set(Phonevalue As String)
+            _mstrPhone = Phonevalue
         End Set
     End Property
     Public Property PhotoPath As String
@@ -101,13 +103,16 @@ Public Class CMember
 #End Region
     Public Function Save() As Integer
         If IsNewMember Then
-            Dim params As New ArrayList
-            params.Add(New SqlParameter("PID", _mstrPID))
-            Dim strResult As String = myDB.GetSingleValueFromSP("sp_GetMemberByPID", params)
+            Dim params1 As New ArrayList
+            params1.Add(New SqlParameter("PID", _mstrPID))
+            Dim strResult As String = myDB.GetSingleValueFromSP("sp_checkMemberPIDExists", params1)
             If Not strResult = 0 Then
                 Return -1
             End If
         End If
         Return myDB.ExecSP("sp_SaveNewMember", GetSaveParams())
+    End Function
+    Public Function GetReportData() As SqlDataAdapter
+        Return myDB.GetDataAdapterbySP("dbo.sp_getAllMembers", Nothing)
     End Function
 End Class

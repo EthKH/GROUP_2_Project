@@ -7,6 +7,7 @@ Public Class frmMember
     Private objMembers As New CMembers
     Private blnClearing As Boolean
     Private blnReloading As Boolean
+    Private gstrLoggedInSecLevelID As String
 #Region "Toolbars"
     Private Sub tsbCourse_MouseEnter(sender As Object, e As EventArgs) Handles tsbCourse.MouseEnter, tsbEvent.MouseEnter, tsbHelp.MouseEnter, tsbHome.MouseEnter, tsbLogout.MouseEnter, tsbMember.MouseEnter, tsbRole.MouseEnter, tsbRSVP.MouseEnter, tsbSemester.MouseEnter, tsbTutor.MouseEnter
         'need to be done one due to the img being non-img images and in the bckgrd imgae slot
@@ -69,7 +70,7 @@ Public Class frmMember
         Catch ex As Exception
 
         End Try
-        If objMembers.CurrentObject.PID <> 0 Then
+        If objMembers.CurrentObject.PID <> "" Then
             lstMembers.SelectedIndex = lstMembers.FindStringExact(objMembers.CurrentObject.PID)
         End If
         blnReloading = False
@@ -96,6 +97,11 @@ Public Class frmMember
     End Sub
 
     Private Sub frmMember_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        'gstrLoggedInSecLevelID = "Guest"
+        If gstrLoggedInSecLevelID = "Guest" Then
+            intNextAction = ACTION_HOME
+            Me.Hide()
+        End If
         ClearScreenControls(Me)
         LoadMembers()
         grpMemberAddUpdate.Enabled = False
@@ -136,6 +142,7 @@ Public Class frmMember
         grpMemberAddUpdate.Enabled = True
     End Sub
     Private Sub LoadSelectedRecord()
+        txtPhoto.Clear()
         Try
             objMembers.GetMemberByPID(lstMembers.SelectedItem.ToString)
             With objMembers.CurrentObject
@@ -146,7 +153,9 @@ Public Class frmMember
                 txtEmail.Text = .Email
                 txtPhone.Text = .Phone
                 txtPhoto.Text = .PhotoPath
+                'picMemberAdd.ImageLocation = .PhotoPath
             End With
+            'MsgBox(Application.StartupPath)
             picMemberAdd.ImageLocation = txtPhoto.Text
         Catch ex As Exception
             MessageBox.Show("Error Loading Member Value: " & ex.ToString, "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -156,15 +165,6 @@ Public Class frmMember
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         LoadPartialSearch()
     End Sub
-    'Private Sub loadparams()
-    '    AddUpdate.Add(New SqlParameter("PID", .PID))
-    '    AddUpdate.Add(New SqlParameter("FName", txtFirstName.Text))
-    '    AddUpdate.Add(New SqlParameter("LName", txtLastName.Text))
-    '    AddUpdate.Add(New SqlParameter("MI", txtMiddle.Text))
-    '    AddUpdate.Add(New SqlParameter("Email", txtEmail.Text))
-    '    AddUpdate.Add(New SqlParameter("Phone", txtPhone.Text))
-    '    AddUpdate.Add(New SqlParameter("PhotoPath", txtPhoto.Text))
-    'End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim blnErrors As Boolean
         If Not ValidateTextboxLength(txtPID, errP) Then
@@ -198,23 +198,28 @@ Public Class frmMember
             Exit Sub
         End If
         If chkAdd.Checked = True And chkUpdate.Checked = True Then
-            MessageBox.Show("Please Select a mode.", "Config Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("User selected both modes, this should not be.", "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         ElseIf chkAdd.Checked = False And chkUpdate.Checked = False Then
-            MessageBox.Show("User selected neither mode, this should not be.", "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Please Select a mode.", "Config Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-        ElseIf chkAdd.Checked = True And chkUpdate.Checked = False Then
+        Else
             Try
+                'push scren data into object using currentobject
+                With objMembers.CurrentObject
+                    .PID = txtPID.Text
+                    .FName = txtFirstName.Text
+                    .LName = txtLastName.Text
+                    .MI = txtMiddle.Text
+                    .Email = txtEmail.Text
+                    .Phone = txtPhone.Text
+                    .PhotoPath = txtPhoto.Text
+                End With
                 objMembers.Save()
-
             Catch ex As Exception
-                MessageBox.Show("Member Already Exists.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error during Save/Update operation" & ex.ToString, "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
-        ElseIf chkAdd.Checked = False And chkUpdate.Checked = True Then
-            'objMembers.UpdateMmeber(AddUpdate)
-        Else
-            MessageBox.Show("Unable to determine mode selection.", "Program Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
     End Sub
@@ -233,4 +238,14 @@ Public Class frmMember
         grpMemberAddUpdate.Enabled = True
     End Sub
 
+    Private Sub btnMemberReport_Click(sender As Object, e As EventArgs) Handles btnMemberReport.Click
+        Dim MemberReport As New frmMemberReport
+        If lstMembers.Items.Count = 0 Then
+            MessageBox.Show("there are no record to print.")
+            Exit Sub
+        End If
+        Me.Cursor = Cursors.WaitCursor
+        MemberReport.Display()
+        Me.Cursor = Cursors.Default
+    End Sub
 End Class
